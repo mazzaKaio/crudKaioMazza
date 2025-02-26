@@ -35,7 +35,7 @@ class CRUDApp:
         self.usuario_entry.grid(row=3, column=1)
         self.senha_entry.grid(row=4, column=1)
 
-        self.userId_entry.grid(row=0, column=1)
+        self.userId_entry.grid(row=5, column=1)
 
         # BOTOES DO CURD
         tk.Button(self.root, text="Criar usuario", command=self.create_user).grid(row=6,column=0,columnspan=1)
@@ -47,7 +47,7 @@ class CRUDApp:
         nome = self.nome_entry.get()
         telefone = self.telefone_entry.get()
         email = self.email_entry.get()
-        usuario = self.usuario_entry_entry.get()
+        usuario = self.usuario_entry.get()
         senha = self.senha_entry.get()
 
         if nome and telefone and email and usuario and senha:
@@ -90,3 +90,17 @@ class CRUDApp:
             messagebox.showerror("Success", "Usuario alterado com sucesso!")
         else:
             messagebox.showerror("Error", "Todos os campos são obrigatórios!")
+
+    def delete_user(self):
+        user_id = self.userId_entry.get()
+        if user_id:
+            delete_user(user_id)
+            self.userId_entry.delete(0, tk.END)
+            messagebox.showerror("Success", "Usuario excluido com sucess!")
+        else:
+            messagebox.showerror("Error", "ID do usuario é obrigatorio!")
+    
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = CRUDApp(root)
+    root.mainloop()
