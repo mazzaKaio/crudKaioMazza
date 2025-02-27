@@ -29,10 +29,10 @@ def read_users():
 
     return result
 
-def update_user(userid, nome, telefone, email, usuario, senha):
+def update_user(nome, telefone, email, usuario, senha, userid):
     conn = get_connection()
     cursor = conn.cursor()
-    query = "UPDATE usuario SET nome=%s, telefone=%s, email=%s, usuario'=%s, senha=%s WHERE userid = %s"
+    query = "UPDATE usuario SET nome = %s, telefone = %s, email = %s, usuario = %s, senha = %s WHERE userid = %s"
     cursor.execute(query, (nome, telefone, email, usuario, senha, userid))
     conn.commit()
     cursor.close()
