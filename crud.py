@@ -12,7 +12,7 @@ def get_connection():
 def create_user(nome, telefone, email, usuario, senha):
     conn = get_connection()
     cursor = conn.cursor()
-    query = "insert usuario(nome, telefone, email, usuario, senha)VALUES(%s, %s, %s, %s, %s)"
+    query = 'insert usuario(nome, telefone, email, usuario, senha)VALUES("%s", "%s", "%s", "%s", "%s")'
     cursor.execute(query, (nome, telefone, email, usuario, senha))
     conn.commit()
     cursor.close()
@@ -41,7 +41,7 @@ def update_user(userId, nome, telefone, email, usuario, senha):
 def delete_user(userId):
     conn = get_connection()
     cursor = conn.cursor()
-    query = "DELETE FROM usuario WHERE idusuario = %s"
+    query = "DELETE * FROM usuario WHERE idusuario = %s"
     cursor.execute(query, (userId))
     conn.commit()
     cursor.close()
