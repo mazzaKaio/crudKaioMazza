@@ -59,7 +59,7 @@ class CRUDApp:
             self.usuario_entry.delete(0, tk.END)
             self.senha_entry.delete(0, tk.END)
 
-            messagebox.showerror("Success", "Usuario criado com sucesso!")
+            messagebox.showinfo("Success", "Usuario criado com sucesso!")
         else:
             messagebox.showerror("Error", "Todos os campos são obrigatórios!")
 
@@ -87,7 +87,7 @@ class CRUDApp:
             self.usuario_entry.delete(0, tk.END)
             self.senha_entry.delete(0, tk.END)
 
-            messagebox.showerror("Success", "Usuario alterado com sucesso!")
+            messagebox.showinfo("Success", "Usuario alterado com sucesso!")
         else:
             messagebox.showerror("Error", "Todos os campos são obrigatórios!")
 
@@ -96,7 +96,7 @@ class CRUDApp:
         if user_id:
             delete_user(user_id)
             self.userId_entry.delete(0, tk.END)
-            messagebox.showerror("Success", "Usuario excluido com sucess!")
+            messagebox.showinfo("Success", "Usuario excluido com sucess!")
         else:
             messagebox.showerror("Error", "ID do usuario é obrigatorio!")
     

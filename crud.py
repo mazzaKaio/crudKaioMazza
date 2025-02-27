@@ -12,7 +12,7 @@ def get_connection():
 def create_user(nome, telefone, email, usuario, senha):
     conn = get_connection()
     cursor = conn.cursor()
-    query = 'insert usuario(nome, telefone, email, usuario, senha)VALUES("%s", "%s", "%s", "%s", "%s")'
+    query = "insert usuario(nome, telefone, email, usuario, senha)VALUES(%s, %s, %s, %s, %s)"
     cursor.execute(query, (nome, telefone, email, usuario, senha))
     conn.commit()
     cursor.close()
