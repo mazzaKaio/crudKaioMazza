@@ -32,7 +32,7 @@ def read_users():
 def update_user(userid, nome, telefone, email, usuario, senha):
     conn = get_connection()
     cursor = conn.cursor()
-    query = "UPDATE usuario SET nome=%s, telefone=%s, email=%s, usuario'=%s, senha=%s WHERE idusuario = %s"
+    query = "UPDATE usuario SET nome=%s, telefone=%s, email=%s, usuario'=%s, senha=%s WHERE userid = %s"
     cursor.execute(query, (nome, telefone, email, usuario, senha, userid))
     conn.commit()
     cursor.close()
@@ -41,8 +41,8 @@ def update_user(userid, nome, telefone, email, usuario, senha):
 def delete_user(userId):
     conn = get_connection()
     cursor = conn.cursor()
-    query = "DELETE * FROM usuario WHERE idusuario = %s"
-    cursor.execute(query, (userId))
+    query = "DELETE userid FROM usuario WHERE userid = %s"
+    cursor.execute(query, (userId,))
     conn.commit()
     cursor.close()
     conn.close()

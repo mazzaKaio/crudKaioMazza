@@ -65,10 +65,10 @@ class CRUDApp:
 
     def read_users(self):
         users = read_users()
-        self.text_area.delete(1.0,tk.END)
+        self.userId_entry.delete(1.0,tk.END)
 
         for user in users:
-            self.text_area.insert(tk.END, f"ID:{user[0]}, Nome:{user[1]}, Telefone:{user[2]}, Email:{user[3]}\n")
+            self.userId_entry.insert(tk.END, f"ID:{user[0]}, Nome:{user[1]}, Telefone:{user[2]}, Email:{user[3]}\n")
     
     def uptade_user(self):
         user_id = self.userId_entry.get()
@@ -78,8 +78,8 @@ class CRUDApp:
         usuario = self.usuario_entry.get()
         senha = self.senha_entry.get()
 
-        if user_id and nome and telefone and email and usuario and senha:
-            update_user(user_id, nome, telefone, email, usuario, senha)
+        if nome and telefone and email and usuario and senha and user_id:
+            update_user(nome, telefone, email, usuario, senha, user_id)
 
             self.nome_entry.delete(0, tk.END)
             self.telefone_entry.delete(0, tk.END)
@@ -96,7 +96,7 @@ class CRUDApp:
         if user_id:
             delete_user(user_id)
             self.userId_entry.delete(0, tk.END)
-            messagebox.showinfo("Success", "Usuario excluido com sucess!")
+            messagebox.showinfo("Success", "Usuario excluido com sucesso!")
         else:
             messagebox.showerror("Error", "ID do usuario é obrigatorio!")
     

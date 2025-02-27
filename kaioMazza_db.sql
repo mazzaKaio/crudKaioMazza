@@ -7,5 +7,5 @@ create table usuario(
     email text,
     usuario text,
     senha text,
-    primary key (idusuario)    
+    primary key (userid)    
 );
