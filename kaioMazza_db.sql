@@ -1,7 +1,7 @@
 create database kaioMazza_db
 
 create table usuario(
-    idusuario int not null auto_increment,
+    userid int not null auto_increment,
     nome text,
     telefone text,
     email text,
