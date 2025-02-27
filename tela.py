@@ -65,7 +65,7 @@ class CRUDApp:
 
     def read_users(self):
         users = read_users()
-        self.userId_entry.delete(1.0,tk.END)
+        self.userId_entry.delete(0,tk.END)
 
         for user in users:
             self.userId_entry.insert(tk.END, f"ID:{user[0]}, Nome:{user[1]}, Telefone:{user[2]}, Email:{user[3]}\n")
@@ -78,7 +78,7 @@ class CRUDApp:
         usuario = self.usuario_entry.get()
         senha = self.senha_entry.get()
 
-        if nome and telefone and email and usuario and senha and user_id:
+        if user_id and nome and telefone and email and usuario and senha:
             update_user(nome, telefone, email, usuario, senha, user_id)
 
             self.nome_entry.delete(0, tk.END)
