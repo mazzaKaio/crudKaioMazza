@@ -25,7 +25,7 @@ class CRUDApp:
         self.telefone_entry = tk.Entry(self.root)
         self.email_entry = tk.Entry(self.root)
         self.usuario_entry = tk.Entry(self.root)
-        self.senha_entry = tk.Entry(self.root)
+        self.senha_entry = tk.Entry(self.root, show="*")
 
         self.userId_entry = tk.Entry(self.root)
 
